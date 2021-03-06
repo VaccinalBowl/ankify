@@ -5,9 +5,6 @@
  */
 function listenForClicks() {
   document.addEventListener("click", (e) => {
-
-
-
     function invoke(action, version, params={}) {
       return new Promise((resolve, reject) => {
           const xhr = new XMLHttpRequest();
@@ -37,10 +34,7 @@ function listenForClicks() {
           xhr.send(JSON.stringify({action, version, params}));
       });
   }
-  
-  //await invoke('createDeck', {deck: 'test1'});
-  //const result = await invoke('deckNames', 6);
-  //console.log(`got list of decks: ${result}`);
+
 
     function ankiize(tabs) {
         browser.tabs.sendMessage(tabs[0].id, {
@@ -132,7 +126,7 @@ function listenForClicks() {
 function reportExecuteScriptError(error) {
   document.querySelector("#popup-content").classList.add("hidden");
   document.querySelector("#error-content").classList.remove("hidden");
-  console.error(`Failed to execute beastify content script: ${error.message}`);
+  console.error(`Failed to execute ankify content script: ${error.message}`);
 }
 
 /**
@@ -141,6 +135,6 @@ function reportExecuteScriptError(error) {
  * If we couldn't inject the script, handle the error.
  */
 
-browser.tabs.executeScript({file: "/content_scripts/beastify.js"})
+browser.tabs.executeScript({file: "/content_scripts/ankify.js"})
 .then(listenForClicks)
 .catch(reportExecuteScriptError);

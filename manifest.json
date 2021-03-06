@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "name": "Ankify",
   "version": "1.0",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "homepage_url": "https://github.com/VaccinalBowl/ankify",
   "icons": {
     "48": "icons/beasts-48.png"
   },
